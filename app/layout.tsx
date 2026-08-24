@@ -13,17 +13,17 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Fade & Locks by Johnny | Fresh Cuts & Dreadlocks',
+  title: 'Johnny Cutz Barbershop | Fresh Cuts & Dreadlocks',
   description: 'Barbearia premium especializada em fresh cuts, fades, dreadlocks e manutenção de locks.',
   openGraph: {
-    title: 'Fade & Locks by Johnny',
+    title: 'Johnny Cutz Barbershop',
     description: 'Cortes precisos. Locks autênticos.',
     type: 'website',
-    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Fade & Locks by Johnny' }],
+    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Johnny Cutz Barbershop' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Fade & Locks by Johnny',
+    title: 'Johnny Cutz Barbershop',
     description: 'Cortes precisos. Locks autênticos.',
     images: ['/og.png'],
   },
