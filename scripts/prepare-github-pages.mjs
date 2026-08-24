@@ -40,6 +40,10 @@ copyFileSync(
   join(clientDirectory, 'index.html'),
   join(pagesDirectory, 'index.html'),
 );
+copyFileSync(
+  join(clientDirectory, 'index.html'),
+  join(pagesDirectory, '404.html'),
+);
 
 const rscFile = join(clientDirectory, 'index.rsc');
 if (existsSync(rscFile)) {
