@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Johnny Cutz Barbershop',
+    title: 'Johnny Cutz Studio',
     description: 'Cortes precisos. Locks autênticos.',
     images: [socialImage],
   },
