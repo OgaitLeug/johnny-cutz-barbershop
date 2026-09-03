@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 
-const siteUrl = 'https://ogaitleug.github.io/johnny-cutz-barbershop';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.johnnycutz-studio.com';
 const socialImage = `${siteUrl}/og.png`;
 
 const geistSans = Geist({

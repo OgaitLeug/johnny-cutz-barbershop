@@ -11,20 +11,18 @@ const projectRoot = process.cwd();
 const distDirectory = join(projectRoot, 'dist');
 const clientDirectory = join(distDirectory, 'client');
 const pagesDirectory = join(distDirectory, 'pages');
-const repositoryName = process.env.GITHUB_REPOSITORY?.split('/')[1];
-
-if (!repositoryName) {
-  throw new Error('GITHUB_REPOSITORY is required to prepare GitHub Pages.');
-}
-
-const prefixedAssetsDirectory = join(clientDirectory, repositoryName);
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+const basePathDirectory = basePath.replace(/^\/+|\/+$/g, '');
+const staticAssetsDirectory = basePathDirectory
+  ? join(clientDirectory, basePathDirectory)
+  : clientDirectory;
 
 if (!existsSync(join(clientDirectory, 'index.html'))) {
   throw new Error('Static export is missing dist/client/index.html.');
 }
 
-if (!existsSync(prefixedAssetsDirectory)) {
-  throw new Error(`Static assets are missing ${prefixedAssetsDirectory}.`);
+if (!existsSync(staticAssetsDirectory)) {
+  throw new Error(`Static assets are missing ${staticAssetsDirectory}.`);
 }
 
 if (!pagesDirectory.startsWith(`${distDirectory}${sep}`)) {
@@ -34,7 +32,7 @@ if (!pagesDirectory.startsWith(`${distDirectory}${sep}`)) {
 rmSync(pagesDirectory, { recursive: true, force: true });
 mkdirSync(pagesDirectory, { recursive: true });
 
-cpSync(prefixedAssetsDirectory, pagesDirectory, { recursive: true });
+cpSync(staticAssetsDirectory, pagesDirectory, { recursive: true });
 cpSync(join(projectRoot, 'public'), pagesDirectory, { recursive: true });
 copyFileSync(
   join(clientDirectory, 'index.html'),
